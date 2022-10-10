@@ -24,20 +24,19 @@ public class accessXmlFileViaDom4j {
         //Declare a hash map for id and desc
         Map<Attribute, Attribute> idAndDesc = new HashMap<>();
 
-        //Iterate over the elements, get the corresponding attributes, and output the map
+        //Iterate over the elements and assign into this hash map
         for (Element facility : facilities ){
                Attribute id = facility.attribute("id") ;
                Attribute desc = facility.attribute("desc");
                idAndDesc.put(id, desc);
-
-//               System.out.println(idAndDesc);
         }
 
-        Set<Attribute> set = idAndDesc.keySet();
-        for (Attribute str : set){
-            System.out.println(str + " " + idAndDesc.get(str));
+        //output
+        Set<Attribute> keySet = idAndDesc.keySet();
+        for (Attribute id : keySet){
+            System.out.println(id + " " + idAndDesc.get(id));
         }
+
     }
-
 
 }
