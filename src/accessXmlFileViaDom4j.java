@@ -1,6 +1,7 @@
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.dom4j.Attribute;
 import org.dom4j.Document;
@@ -29,8 +30,14 @@ public class accessXmlFileViaDom4j {
                Attribute desc = facility.attribute("desc");
                idAndDesc.put(id, desc);
 
-               System.out.println(idAndDesc);
+//               System.out.println(idAndDesc);
         }
 
+        Set<Attribute> set = idAndDesc.keySet();
+        for (Attribute str : set){
+            System.out.println(str + " " + idAndDesc.get(str));
+        }
     }
+
+
 }
