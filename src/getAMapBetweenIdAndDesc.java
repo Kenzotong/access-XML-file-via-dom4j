@@ -3,13 +3,15 @@ import java.util.List;
 import java.util.Map;
 //import java.util.Set;
 
+import org.dom4j.Text;
 import org.dom4j.Attribute;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
-public class accessXmlFileViaDom4j {
+
+public class getAMapBetweenIdAndDesc {
     public static void main(String[] args) throws DocumentException {
 
         System.out.println(getIdAndDesc());
@@ -22,7 +24,8 @@ public class accessXmlFileViaDom4j {
         SAXReader reader = new SAXReader();
 
         //loading xml file, get document structure
-        Document document = reader.read("D:/Jetbrain/bene/scenarios/tourismFacilities/tourismFacilities.xml");
+        Document document = reader.read("D:/Jetbrain/bene/scenarios/tourismFacilities/tourismFacilities(new).xml");
+
         //get root element
         Element root = document.getRootElement();
 
@@ -36,14 +39,10 @@ public class accessXmlFileViaDom4j {
         for (Element facility : facilities ){
             Attribute id = facility.attribute("id") ;
             Attribute desc = facility.attribute("desc");
-            idAndDesc.put(id, desc);
-        }
 
-        //output
-//        Set<Attribute> keySet = idAndDesc.keySet();
-//        for (Attribute id : keySet){
-//            System.out.println(id + " " + idAndDesc.get(id));
-//        }
+            idAndDesc.put(id, desc);
+
+        }
 
         return idAndDesc;
 
